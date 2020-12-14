@@ -11,11 +11,20 @@ public class App
     public static void main( String[] args )
     {
 
+        /*xml file should be in resources*/
         ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
-
         MainInterface mainInterface = (MainInterface) context.getBean("first");
+        System.out.print("Using xml config ");
         mainInterface.testBean();
 
+        //Using Annotation of @component and scan the packages from XML file
+        mainInterface = (MainInterface) context.getBean("firstBeanRun");
+        System.out.print("Using Annotation ");
+        mainInterface.testBean();
+
+        //Dependency of brand var in class use property tag in xml
+        Shoes shoes = (Shoes) context.getBean("shoe");
+        System.out.println(shoes);
 
     }
 }
