@@ -1,5 +1,8 @@
 package com.learning;
 
+import org.springframework.stereotype.Component;
+
+@Component("QualifiedBeanBag")
 public class Bags {
 
     public String getBrand() {

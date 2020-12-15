@@ -3,7 +3,7 @@ package com.learning;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component
+@Component //Non Qualified and decaptilized
 public class FirstBeanRun implements MainInterface{
 
     public Bags getBags() {

@@ -1,5 +1,6 @@
 package com.learning;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -11,7 +12,9 @@ public class App
     public static void main( String[] args )
     {
 
-        /*xml file should be in resources*/
+        //XML AND ANNOTATION BASED
+        /*
+        //xml file should be in resources
         ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
         MainInterface mainInterface = (MainInterface) context.getBean("first");
         System.out.print("Using xml config ");
@@ -30,6 +33,16 @@ public class App
 
         //From annotation type bean to xml bases bean
         FirstBeanRun firstBeanRun = (FirstBeanRun) context.getBean("firstBeanRun");
-        firstBeanRun.callBagBean();
+        firstBeanRun.callBagBean();*/
+
+       ApplicationContext factory = new AnnotationConfigApplicationContext(AnnotationConfig.class);
+        IPhone iPhone = factory.getBean(IPhone.class);
+        iPhone.qualityConfig();
+
+        AnnoMobileProcesor annoMobileProcesor = (AnnoMobileProcesor) factory.getBean("annoMobileProcesor");
+        annoMobileProcesor.usingComponentScan();
+
+        Bags bags = (Bags) factory.getBean("QualifiedBeanBag");
+        System.out.println(bags);
     }
 }
