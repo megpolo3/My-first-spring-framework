@@ -17,4 +17,8 @@
         <!-- Setter operation <property name="brand" value="Reebook"></property> -->
         <constructor-arg value="Addidas"></constructor-arg>
     </bean>
+
+    <bean id="bag" class="com.learning.Bags">
+        <property name="brand" value="Gucci"></property>
+    </bean>
 </beans>

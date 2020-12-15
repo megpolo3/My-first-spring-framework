@@ -21,10 +21,15 @@ public class App
         mainInterface = (MainInterface) context.getBean("firstBeanRun");
         System.out.print("Using Annotation ");
         mainInterface.testBean();
-
         //Dependency of brand var in class use property tag in xml
         Shoes shoes = (Shoes) context.getBean("shoe");
         System.out.println(shoes);
 
+        Bags bags = (Bags) context.getBean("bag");
+        System.out.println(bags);
+
+        //From annotation type bean to xml bases bean
+        FirstBeanRun firstBeanRun = (FirstBeanRun) context.getBean("firstBeanRun");
+        firstBeanRun.callBagBean();
     }
 }
